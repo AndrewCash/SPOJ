@@ -1,3 +1,8 @@
+// Andrew Cash
+// 2018
+// http://www.spoj.com/problems/PRIME1/
+
+
 #include <iostream>
 using namespace std;
 
