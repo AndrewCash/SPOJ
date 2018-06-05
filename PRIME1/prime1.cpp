@@ -1,43 +1,44 @@
 // Andrew Cash
 // 2018
 // http://www.spoj.com/problems/PRIME1
+// incomplete
 
 
 #include <iostream>
-#include <math.h>
+#include <vector>
+#include <algorithm>
 using namespace std;
 
 void findPrimes(int low, int high)
 {
-    bool primes[high] { 0 };
-    //int numFoundPrimes;
-
-    for (int i=low; i<=sqrt(high); i++)
+    vector<int> primes;
+    
+    // Loop from low to high
+    for (int i=low; i<high; i++)
     {
-        if ((i%2 != 0) || (i%3 != 0) || (i%5 != 0) || (i%7 != 0))
+        bool prime=true;
+
+        for (int j=2; j<i; j++)
         {
-            // found prime number
-            primes[i] = true;
-           // numFoundPrimes++;
+            if (j%i == 0)
+            {
+                prime = false;
+               // break;
+            }
+        }
+
+        if (prime)
+        {
+            primes.push_back(i);
         }
     }
 
-    //cout << prime numberz
-    /*
-    for (int j=0; j<numFoundPrimes; j++)
-    {
-        cout << primes[j] << endl;
-    }
-    */
 
-    //cout << primes[0] << endl;
-
+    cout << endl;
     for (int i = low; i < high; i++)
     {
-        if (primes[i]==(true))
-        {
-            cout << i << endl;
-        }
+        if ( find(primes.begin(), primes.end(), i) != primes.end())
+            cout << i;
     }
 }
 
