@@ -1,6 +1,6 @@
 // Andrew Cash
 // 2018
-// http://www.spoj.com/problems/PRIME1/
+// http://www.spoj.com/problems/PRIME1
 
 
 #include <iostream>
@@ -8,22 +8,25 @@ using namespace std;
 
 void findPrimes(int m, int n){
     int i = m;
-    int primes[100000];
-    int z;
+    int primes[n-m];
+    int numFoundPrimes;
 
     while (i < n){
         // check if number is prime
         if (i%2 != 0 || i%3 != 0 || i%5 != 0){
             //add number to prime numbers array
-            primes[z] = i;
-            z++;
+            primes[numFoundPrimes] = i;
+            numFoundPrimes++;
         }
 
         i++;
     }
 
     //cout << prime numberz
-    while (
+    for (int j=0; j<numFoundPrimes; j++)
+    {
+        cout << primes[j] << endl;
+    }
 }
 
 
