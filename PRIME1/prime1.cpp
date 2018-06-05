@@ -4,36 +4,48 @@
 
 
 #include <iostream>
+#include <math.h>
 using namespace std;
 
-void findPrimes(int m, int n){
-    int i = m;
-    int primes[n-m];
-    int numFoundPrimes;
+void findPrimes(int low, int high)
+{
+    bool primes[high] { 0 };
+    //int numFoundPrimes;
 
-    while (i < n){
-        // check if number is prime
-        if (i%2 != 0 || i%3 != 0 || i%5 != 0){
-            //add number to prime numbers array
-            primes[numFoundPrimes] = i;
-            numFoundPrimes++;
+    for (int i=low; i<=sqrt(high); i++)
+    {
+        if ((i%2 != 0) || (i%3 != 0) || (i%5 != 0) || (i%7 != 0))
+        {
+            // found prime number
+            primes[i] = true;
+           // numFoundPrimes++;
         }
-
-        i++;
     }
 
     //cout << prime numberz
+    /*
     for (int j=0; j<numFoundPrimes; j++)
     {
         cout << primes[j] << endl;
+    }
+    */
+
+    //cout << primes[0] << endl;
+
+    for (int i = low; i < high; i++)
+    {
+        if (primes[i]==(true))
+        {
+            cout << i << endl;
+        }
     }
 }
 
 
 int main(){
   
-  int numTestCase;
-  cin >> numTestCase;
+  int cases;
+  cin >> cases;
   /*
   if (0 < numTestCase && numTestCase <= 10){
     cin >> numTestCase;
@@ -42,16 +54,16 @@ int main(){
     return 0;
 */
 
-  int m[numTestCase-1];
-  int n[numTestCase-1];
+  int m[cases-1];
+  int n[cases-1];
    
-  for (int i=0; i<numTestCase; i++){
+  for (int i=0; i<cases; i++){
     cin >> m[i] >> n[i];
    //cout << "M: " << m[i] <<  "\nN: " << n[i] << endl;
   }
 
 
-  for (int i=0; i<numTestCase; i++){
+  for (int i=0; i<cases; i++){
    findPrimes(m[i], n[i]);
   }
 
