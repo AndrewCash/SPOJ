@@ -13,6 +13,8 @@ string parse(string expression)
    stack<char> operators;
    string parsedString;
 
+
+
    for (unsigned int i=0; i<expression.length() ; i++)
    {  
        // if i is letter then push it to parsedString
@@ -57,11 +59,23 @@ string parse(string expression)
            operators.push(expression[i]);
        }
        
+       // if [i] is open parenth
+       else if (expression[i] == '(')
+       {
+           operators.push(expression[i]);
+       }
+
+
        // if [i] is close parenth
        else if (expression[i] == ')')
        {
-           //Pop off operator stack and push to output string
-           parsedString += operators.top();
+           while (operators.top() != '(')
+           {
+                //Pop off operator stack and push to output string
+                parsedString += operators.top();
+                operators.pop();
+           }
+           
            operators.pop();
        }
 
