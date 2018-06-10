@@ -1,6 +1,30 @@
 // Andrew Cash 2018
 // http://www.spoj.com/problems/ONP/
 
+/*
+
+Input:
+t [the number of expressions <= 100]
+expression [length <= 400]
+[other expressions]
+Text grouped in [ ] does not appear in the input file.
+
+Output:
+The expressions in RPN form, one per line.
+
+Input:
+3
+(a+(b*c))
+((a+b)*(z+x))
+((a+t)*((b+(a+c))^(c+d)))
+
+Output:
+abc*+
+ab+zx+*
+at+bac++cd+^*
+
+*/
+
 #include <iostream>
 #include <string>
 #include <stack>
