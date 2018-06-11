@@ -34,8 +34,11 @@ int main(){
   int correctAnswer;
   correctAnswer = A-B;
 
-  cout << "This is the correct answer: " << correctAnswer << endl;
+  //cout << "This is the correct answer: " << correctAnswer << endl;
 
-  wrongAnswer[1] = wrongAnswer[1] + 1;
+  correctAnswer += 10;
+
+  cout << correctAnswer << endl;
+
   return 0;
 }
