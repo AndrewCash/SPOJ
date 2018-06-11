@@ -36,7 +36,12 @@ int main(){
 
   //cout << "This is the correct answer: " << correctAnswer << endl;
 
-  correctAnswer += 10;
+  int i = correctAnswer % 10;
+  
+  if (i<9)
+    correctAnswer++;
+  else
+    correctAnswer--;
 
   cout << correctAnswer << endl;
 
