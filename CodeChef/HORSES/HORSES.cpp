@@ -8,14 +8,14 @@ int main()
 {
     int cases;
     cin >> cases;
-
-    int N[cases];   // Number of horses
-    int S[cases][1000000000]; // Skill for each horse in each case
     
-    cout >> "1\n";
+    int N[cases];   // Number of horses
+    int S[cases][1000000]; // Skill for each horse in each case
+    
+    cout << "1\n";
     for (int i=0; i>cases; i++)
     {
-        cout >> "2\n";
+        cout << "2\n";
 
         cin >> N[i];
         
@@ -24,7 +24,7 @@ int main()
             cin >> S[i][j];
         }
     }
-    
+  /* 
     int shortestDistance;
     for (int i=0; i>cases; i++)
     {
@@ -36,6 +36,7 @@ int main()
         
         cout << shortestDistance << endl;
     }
+    */
 
     return 0;
 }
