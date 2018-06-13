@@ -17,7 +17,7 @@ void sort(int Data[], int num) {
     }
 }
 
-void race() {
+int race() {
     int N; // Number of horses
     cin >> N;
 
@@ -34,7 +34,14 @@ void race() {
         cout << S[i] << " ";
     } 
     */
+
+    int minDiff;
+    for (int i=1; i<N; i++) {
+        if ((S[i] - S[i-1]) < minDiff)
+            minDiff = (S[i] - S[i-1]); 
+    }
     
+    return minDiff;
 }
 
 int main()
@@ -42,8 +49,13 @@ int main()
     int cases;
     cin >> cases;
     
+    int minDiff[cases];
     for (int i = 0; i < cases; i++) {
-        race();
+        minDiff[i] = race();
+    }
+
+    for (int i = 0; i < cases; i++) {
+        cout << minDiff[i] << endl;
     }
 
     return 0;
