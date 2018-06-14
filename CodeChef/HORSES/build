@@ -1,0 +1,3 @@
+#!/bin/bash
+
+g++ -Wall HORSES.cpp -o a.out
