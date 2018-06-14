@@ -41,11 +41,17 @@ int race() {
     int minDiff = S[N] - S[0];
 
     for (int i=1; i<N; i++) {
-        if ((S[i] - S[i-1]) < minDiff)
-            minDiff = (S[i] - S[i-1]);
-         // cout << "Testing... " <<  S[i] - S[i-1] << endl;
-    }
+        if (minDiff < 0){
+            minDiff = 99999;
+        }
 
+
+        if ((S[i] - S[i-1]) < minDiff) {
+            minDiff = (S[i] - S[i-1]);
+            //cout << "Testing... " <<  S[i] - S[i-1] << endl;
+        }
+    }
+    //cout << "minDiff: " <<  minDiff << endl;
     return minDiff;
 }
 
@@ -53,13 +59,12 @@ int main()
 {
     int cases;
 
-   // while (1 > cases && cases > 10) {
-        cin >> cases;
-   // }
+    cin >> cases;
     
     int minDiff[cases]; // minimum difference for each case
     
     for (int i = 0; i < cases; i++) {
+        //cout << "Case " << i << endl;
         minDiff[i] = race();
     }
 
@@ -67,8 +72,8 @@ int main()
         cout << minDiff[i] << endl;
     }
     
-    int waitasec;
-    cin >> waitasec;
+    //int waitasec;
+    //cin >> waitasec;
 
     return 0;
 }
