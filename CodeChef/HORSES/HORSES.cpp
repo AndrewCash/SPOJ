@@ -1,5 +1,6 @@
-//Andrew Cash 2018
+// Andrew Cash 2018
 // https://www.codechef.com/problems/HORSES
+// Complete
 
 #include <iostream>
 using namespace std;
@@ -72,8 +73,5 @@ int main()
         cout << minDiff[i] << endl;
     }
     
-    //int waitasec;
-    //cin >> waitasec;
-
     return 0;
 }
