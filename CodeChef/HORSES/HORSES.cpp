@@ -31,9 +31,11 @@ int race() {
 
     /*
     //Test sort function
+    cout << endl;
     for (int i=0; i<N; i++) {
         cout << S[i] << " ";
     } 
+    cout << endl;
     */
 
     int minDiff = S[N] - S[0];
@@ -64,6 +66,9 @@ int main()
     for (int i = 0; i < cases; i++) {
         cout << minDiff[i] << endl;
     }
+    
+    int waitasec;
+    cin >> waitasec;
 
     return 0;
 }
