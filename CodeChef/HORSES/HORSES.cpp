@@ -19,11 +19,16 @@ void sort(int Data[], int num) {
 
 int race() {
     int N; // Number of horses
-    cin >> N;
+    
+    //while (2 > N && N > 5000) {
+        cin >> N;
+    //}
 
     int S[N]; // Skill of each horse
     for (int i=0; i<N; i++) {
-        cin >> S[i];
+        //while (1 > S[i] && S[i] > 1000000000) {
+            cin >> S[i];
+        //}
     }
 
     sort(S, N);
@@ -35,21 +40,27 @@ int race() {
     } 
     */
 
-    int minDiff;
+    int minDiff = S[N] - S[0];
+
     for (int i=1; i<N; i++) {
         if ((S[i] - S[i-1]) < minDiff)
-            minDiff = (S[i] - S[i-1]); 
+            minDiff = (S[i] - S[i-1]);
+         // cout << "Testing... " <<  S[i] - S[i-1] << endl;
     }
-    
+
     return minDiff;
 }
 
 int main()
 {
     int cases;
-    cin >> cases;
+
+   // while (1 > cases && cases > 10) {
+        cin >> cases;
+   // }
     
-    int minDiff[cases];
+    int minDiff[cases]; // minimum difference for each case
+    
     for (int i = 0; i < cases; i++) {
         minDiff[i] = race();
     }
