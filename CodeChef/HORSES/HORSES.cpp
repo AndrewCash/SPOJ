@@ -19,16 +19,12 @@ void sort(int Data[], int num) {
 
 int race() {
     int N; // Number of horses
-    
-    //while (2 > N && N > 5000) {
-        cin >> N;
-    //}
+
+    cin >> N;
 
     int S[N]; // Skill of each horse
     for (int i=0; i<N; i++) {
-        //while (1 > S[i] && S[i] > 1000000000) {
             cin >> S[i];
-        //}
     }
 
     sort(S, N);
