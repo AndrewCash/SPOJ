@@ -20,13 +20,13 @@ int exchange(int num) {
 int main(){
     int num = 0;
     while (0 <= num && num <= 1000000000) {
-        cout << "scan" << endl;
-        scanf ("%i\n", &num);
+        //cout << "scan" << endl;
+        scanf ("%i", &num);
         
-        cout << "exchange\n";
+        //cout << "exchange\n";
         num = exchange(num);
         
-        cout << "print pls\n";
+        //cout << "print pls\n";
         printf ("%i\n", num);
     }
 
