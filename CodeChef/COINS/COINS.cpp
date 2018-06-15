@@ -1,7 +1,6 @@
 // Andrew Cash 2018
 // https://www.codechef.com/problems/COINS
 
-#include <iostream>
 #include <stdio.h>
 using namespace std;
 
@@ -20,13 +19,8 @@ int exchange(int num) {
 int main(){
     int num = 0;
     while (0 <= num && num <= 1000000000) {
-        //cout << "scan" << endl;
         scanf ("%i", &num);
-        
-        //cout << "exchange\n";
         num = exchange(num);
-        
-        //cout << "print pls\n";
         printf ("%i\n", num);
     }
 
