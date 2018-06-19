@@ -4,7 +4,7 @@
 #include <stdio.h>
 using namespace std;
 
-int exchange(int num) {
+int exchange(long long int num) {
     int a = (num / 2);
     int b = (num / 3);
     int c = (num / 4);
@@ -17,11 +17,12 @@ int exchange(int num) {
 }
 
 int main(){
-    int num = 0;
+    long long int num = 0;
     while (0 <= num && num <= 1000000000) {
-        scanf ("%d", &num);
+        scanf ("%lld", &num);
         num = exchange(num);
-        printf ("%d\n", num);
+        printf ("%lld\n", num);
+        num = 0;
     }
 
     return 0;
