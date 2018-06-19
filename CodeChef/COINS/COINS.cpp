@@ -19,9 +19,9 @@ int exchange(int num) {
 int main(){
     int num = 0;
     while (0 <= num && num <= 1000000000) {
-        scanf ("%i", &num);
+        scanf ("%d", &num);
         num = exchange(num);
-        printf ("%i\n", num);
+        printf ("%d\n", num);
     }
 
     return 0;
