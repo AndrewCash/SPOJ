@@ -14,13 +14,13 @@ class Flight {
 }
 
 int main() {
-    int C, F;
-    cin >> C >> F;
+    int C, F;       // C = # of cities
+    cin >> C >> F;  // F = # of cities connected
     
     int x, y, p;
     for (int i=0; i<F+1; i++) {
-        cin x; // Cities connected by flights
-        cin y;
+        cin x; // Ordered pair of cities 
+        cin y; // connected by flights.
         cin p; // Price of flight
     }
 
