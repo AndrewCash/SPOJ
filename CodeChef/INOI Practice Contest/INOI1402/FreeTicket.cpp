@@ -4,11 +4,25 @@
 #include <iostream>
 using namespace std;
 
+class Flight {
+    public:
+        // Getters
+        // Setters
+
+    private:
+        
+}
+
 int main() {
     int C, F;
     cin >> C >> F;
     
-    cout << C << F << endl;
+    int x, y, p;
+    for (int i=0; i<F+1; i++) {
+        cin x; // Cities connected by flights
+        cin y;
+        cin p; // Price of flight
+    }
 
     return 0;
 }
