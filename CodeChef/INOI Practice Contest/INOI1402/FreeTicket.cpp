@@ -4,21 +4,27 @@
 #include <iostream>
 using namespace std;
 
-// Flight node. 
-class Flight { 
+class Map {
     public:
-        Flight();
-        void insertNode(int X, int Y);
-        
+        Map();
+        Map(int C, int F);
+        ~Map();
+        void addFlight();
     private:
-        int price;
-        
-};
+        int Cities;  // number of cities on the network
+        int Flights; // number of pairs of cities connected by a direct flight
+        int Map[Cities][Cities];
+}
+
+void addFlight(int data[][], int price) {
+
+}
 
 int main() {
     int C, F;       // C = # of cities
     cin >> C >> F;  // F = # of cities connected
-    
+ 
+    int Map[C][C];
 
     // Add flights to map
     int x, y, p;
