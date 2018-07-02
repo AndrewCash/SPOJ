@@ -14,6 +14,21 @@ void addFlight(vector<pair<int, int> > AdjMatrix[], int u, int v, int price)
     AdjMatrix[v].push_back(make_pair(u, price));
 }
 
+void printGraph(vector<pair<int, int> > AdjMatrix[], int Cities)
+{
+    int v, w;
+    for (int i=0; i<Cities; i++)
+    {
+        cout << "City " << i << " has a connecting flight with \n";
+        for (auto it = AdjMatrix[i].begin(); it!=AdjMatrix[i].end(); it++)
+        {
+            v = it->first;
+            w = it->second;
+            cout << "city " << v << " with price = " << w << "\n";
+        }
+    }
+}
+
 int main() {
     int C, F;       // C = # of cities / verticies
     cin >> C >> F;  // F = # of cities connected / edges
