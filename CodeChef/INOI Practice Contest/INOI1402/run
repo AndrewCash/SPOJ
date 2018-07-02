@@ -4,4 +4,4 @@ echo "Compiling..."
 ./build
 
 echo "Executing..."
-./a.out < input.txt
+./a.out < "input.txt"
