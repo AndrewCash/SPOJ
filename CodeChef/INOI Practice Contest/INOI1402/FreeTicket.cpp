@@ -24,8 +24,9 @@ void printGraph(vector<pair<int, int> > AdjMatrix[], int Cities)
         {
             v = it->first;
             w = it->second;
-            cout << "city " << v << " with price = " << w << "\n";
+            cout << "\tcity " << v << " with price = " << w << "\n";
         }
+        cout << "\n";
     }
 }
 
@@ -46,8 +47,10 @@ int main() {
         cin >> y; // connected by flights.
         cin >> p; // Price of flight.
 
-        addFlight(AdjMatrix, x, y, p);
+        addFlight(AdjMatrix, x-1, y, p); // Note: x-1 because x is zero indexed. Avoids segfault
     }
+    
+    printGraph(AdjMatrix, C);
 
     return 0;
 }
