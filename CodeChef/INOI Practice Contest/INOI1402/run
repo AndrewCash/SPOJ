@@ -1,0 +1,7 @@
+#!/bin/bash
+
+echo "Compiling..."
+./build
+
+echo "Executing..."
+./a.out < input.txt
