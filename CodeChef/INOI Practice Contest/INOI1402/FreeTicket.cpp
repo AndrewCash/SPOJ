@@ -31,7 +31,7 @@ void printGraph(vector<pair<int, int> > AdjMatrix[], int Cities)
 
 int main() {
     int C, F;       // C = # of cities / verticies
-    cin >> C >> F;  // F = # of cities connected / edges
+    cin >> C >> F;  // F = # of pairs of cities connected / edges
  
     // Vector contains adjacency matrix for graph.
     // Vertex 1 = index of vector
