@@ -4,28 +4,25 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-class Map {
-    public:
-        Map();
-        Map(int C, int F);
-        ~Map();
-        void addFlight(int data[][], int price);
-    private:
-        int Cities;  // number of cities on the network
-        int Flights; // number of pairs of cities connected by a direct flight
-        int Map[100][100];
-};
-
 // Add edge to graph
-void Map::addFlight(int data[][], int price) { 
-
+//  u = vertex represented by index of vector
+//  v = vertex connected to index vertex
+//  price = weight of edge
+void addFlight(vector<pair<int, int> > AdjMatrix[], int u, int v, int price) 
+{ 
+    AdjMatrix[u].push_back(make_pair(v, price));
+    AdjMatrix[v].push_back(make_pair(u, price));
 }
 
 int main() {
-    int C, F;       // C = # of cities
-    cin >> C >> F;  // F = # of cities connected
+    int C, F;       // C = # of cities / verticies
+    cin >> C >> F;  // F = # of cities connected / edges
  
-    //int Map[C][C];
+    // Vector contains adjacency matrix for graph.
+    // Vertex 1 = index of vector
+    // Vertex 2 = first int
+    // Weight   = second int
+    vector<pair<int, int> > AdjMatrix[C];
 
     // Add flights to map
     int x, y, p;
@@ -33,6 +30,8 @@ int main() {
         cin >> x; // Ordered pair of cities 
         cin >> y; // connected by flights.
         cin >> p; // Price of flight.
+
+        addFlight(AdjMatrix, x, y, p);
     }
 
     return 0;
