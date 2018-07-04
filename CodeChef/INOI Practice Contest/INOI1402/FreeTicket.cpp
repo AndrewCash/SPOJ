@@ -40,7 +40,7 @@ int main() {
     // Vertex 2 = first int
     // Weight   = second int
     // Adj Matrix array isn't zero indexed
-    vector<pair<int, int> > AdjMatrix[C]; // C +1 so AdjMatrix isn't zero indexed.
+    vector<pair<int, int> > AdjMatrix[C];
 
     // Add flights to map
     int x, y, p;
