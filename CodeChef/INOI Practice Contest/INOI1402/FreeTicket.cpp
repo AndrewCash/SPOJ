@@ -18,7 +18,7 @@ void addFlight(vector<pair<int, int> > AdjMatrix[], int u, int v, int price)
 void printGraph(vector<pair<int, int> > AdjMatrix[], int Cities)
 {
     int v, w;
-    for (int i=0; i<Cities; i++)
+    for (int i = 1; i < Cities + 1; i++)
     {
         cout << "City " << i << " has a connecting flight with \n";
         for (auto it = AdjMatrix[i].begin(); it!=AdjMatrix[i].end(); it++)
@@ -40,7 +40,7 @@ int main() {
     // Vertex 2 = first int
     // Weight   = second int
     // Adj Matrix array isn't zero indexed
-    vector<pair<int, int> > AdjMatrix[C + 1]; // C +1 so AdjMatrix isn't zero indexed.
+    vector<pair<int, int> > AdjMatrix[C]; // C +1 so AdjMatrix isn't zero indexed.
 
     // Add flights to map
     int x, y, p;
