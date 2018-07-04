@@ -97,7 +97,7 @@ int main() {
 
     // Add flights to map
     int x, y, p;
-    for (int i = 0; i < Flights + 1; i++) {
+    for (int i = 0; i < Flights; i++) {
         cin >> x; // Ordered pair of cities
         cin >> y; // connected by flights.
         cin >> p; // Price of flight.
