@@ -47,6 +47,7 @@ void printGraph(vector<pair<int, int> > AdjMatrix[], int Cities)
     for (int i = 1; i < Cities + 1; i++)
     {
         cout << "City " << i << " has a connecting flight with \n";
+
         for (auto it = AdjMatrix[i].begin(); it!=AdjMatrix[i].end(); it++)
         {
             v = it->first;
@@ -56,6 +57,11 @@ void printGraph(vector<pair<int, int> > AdjMatrix[], int Cities)
         cout << "\n";
     }
 }
+
+//What i want to do...
+
+// Loop through pairs of cities.
+// Find maximum cheapest route between any pair of cities.
 
 int main() {
     int C, F;       // C = # of cities / verticies
