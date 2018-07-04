@@ -60,23 +60,44 @@ void printGraph(vector<pair<int, int> > AdjMatrix[], int Cities)
 
 //What i want to do...
 
-// Loop through pairs of cities.
+
 // Find maximum cheapest route between any pair of cities.
+int findCheapRoute(vector<pair<int, int> > AdjMatrix[], int Cities)
+{
+  int cheapestRoute = 0;
+
+  // Loop through pairs of cities.
+  int v, w;
+  for (int i = 1; i < Cities + 1; i++)
+  {
+      //cout << "City " << i << " has a connecting flight with \n";
+
+      for (auto it = AdjMatrix[i].begin(); it!=AdjMatrix[i].end(); it++)
+      {
+          v = it->first;
+          w = it->second;
+          //cout << "\tcity " << v << " with price = " << w << "\n";
+      }
+      cout << "\n";
+  }
+
+  return cheapestRoute;
+}
 
 int main() {
-    int C, F;       // C = # of cities / verticies
-    cin >> C >> F;  // F = # of pairs of cities connected / edges
+    int Cities, Flights;       // C = # of cities / verticies
+    cin >> Cities >> Flights;  // F = # of pairs of cities connected / edges
 
     // Vector contains adjacency matrix for graph.
     // Vertex 1 = index of vector
     // Vertex 2 = first int
     // Weight   = second int
     // Adj Matrix array isn't zero indexed
-    vector<pair<int, int> > AdjMatrix[C];
+    vector<pair<int, int> > AdjMatrix[Cities];
 
     // Add flights to map
     int x, y, p;
-    for (int i=0; i<F+1; i++) {
+    for (int i = 0; i < Flights + 1; i++) {
         cin >> x; // Ordered pair of cities
         cin >> y; // connected by flights.
         cin >> p; // Price of flight.
@@ -84,7 +105,7 @@ int main() {
         addFlight(AdjMatrix, x, y, p);
     }
 
-    printGraph(AdjMatrix, C);
+    printGraph(AdjMatrix, Cities);
 
 
 
