@@ -73,6 +73,7 @@ int findCheapRoute(vector<pair<int, int> > AdjMatrix[], int Cities)
   int cheapestRouteDistance = 0;
   int cheapestRoutePrice = 0;
   int routeDistance = 0;
+  int routePrice = 0;
 
   // Loop through first city in pair.
   int v, w;
@@ -86,6 +87,12 @@ int findCheapRoute(vector<pair<int, int> > AdjMatrix[], int Cities)
           v = it->first;
           w = it->second;
           //cout << "\tcity " << v << " with price = " << w << "\n";
+
+          if (cheapestRouteDistance < routeDistance)
+          {
+            cheapestRouteDistance = routeDistance;
+            cheapestRoutePrice = routePrice;
+          }
       }
       cout << "\n";
   }
