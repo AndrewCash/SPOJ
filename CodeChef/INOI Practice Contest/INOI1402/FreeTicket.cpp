@@ -58,20 +58,29 @@ void printGraph(vector<pair<int, int> > AdjMatrix[], int Cities)
     }
 }
 
+void printOrderedPairs(vector<pair<int, int> > AdjMatrix[], int Cities)
+{
+
+
+}
+
 //What i want to do...
 
 
 // Find maximum cheapest route between any pair of cities.
 int findCheapRoute(vector<pair<int, int> > AdjMatrix[], int Cities)
 {
-  int cheapestRoute = 0;
+  int cheapestRouteDistance = 0;
+  int cheapestRoutePrice = 0;
+  int routeDistance = 0;
 
-  // Loop through pairs of cities.
+  // Loop through first city in pair.
   int v, w;
   for (int i = 1; i < Cities + 1; i++)
   {
-      //cout << "City " << i << " has a connecting flight with \n";
 
+
+      // Loop through second city and weight
       for (auto it = AdjMatrix[i].begin(); it!=AdjMatrix[i].end(); it++)
       {
           v = it->first;
@@ -81,7 +90,7 @@ int findCheapRoute(vector<pair<int, int> > AdjMatrix[], int Cities)
       cout << "\n";
   }
 
-  return cheapestRoute;
+  return cheapestRoutePrice;
 }
 
 int main() {
