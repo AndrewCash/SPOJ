@@ -39,7 +39,8 @@ int main() {
     // Vertex 1 = index of vector
     // Vertex 2 = first int
     // Weight   = second int
-    vector<pair<int, int> > AdjMatrix[C];
+    // Adj Matrix array isn't zero indexed
+    vector<pair<int, int> > AdjMatrix[C + 1]; // C +1 so AdjMatrix isn't zero indexed.
 
     // Add flights to map
     int x, y, p;
@@ -48,7 +49,7 @@ int main() {
         cin >> y; // connected by flights.
         cin >> p; // Price of flight.
 
-        addFlight(AdjMatrix, x-1, y, p); // Note: x-1 because x is zero indexed. Avoids segfault
+        addFlight(AdjMatrix, x, y, p);
     }
 
     printGraph(AdjMatrix, C);
