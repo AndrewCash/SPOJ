@@ -54,8 +54,8 @@ void printGraph(vector<pair<int, int> > AdjMatrix[], int Cities)
 
         for (auto it = AdjMatrix[i].begin(); it!=AdjMatrix[i].end(); it++) // begin and end are array iterator
         {
-            v = it->first;
-            w = it->second;
+            v = it->first;  // Vertex of second city in coordinate pair
+            w = it->second; // Weight of second city in coordinate pair
             cout << "\tCity " << v << " with price = " << w << "\n";
         }
         cout << "\n";
@@ -77,13 +77,37 @@ bool isConnected(vector<pair<int, int> > AdjMatrix[], int u, int v)
     return false;
 }
 
+int findCheapestRouteHelper(vector<pair<int, int> > AdjMatrix[], int routeDistance,
+                            int currentNode, int end)
+{
+    return routeDistance;
+}
+
 // Find cheapest route between City 1 and City 2
-int findRoute(vector<pair<int, int> > AdjMatrix[], int City1, int City2)
+int findCheapestRoute(vector<pair<int, int> > AdjMatrix[], int start, int end)
 {
     // v = it->first;  // Vertex of second city in coordinate pair
     // w = it->second; // Weight of second city in coordinate pair
-    //
-    // if (isConnected(AdjMatrix, i, v))
+
+    int routeDistance = 0;
+    int currentNode = start;
+
+    while (currentNode != end)
+    {
+        // Loop through nodes connected to first node.
+        for (auto it = AdjMatrix[currentNode].begin(); it!=AdjMatrix[currentNode].end(); it++)
+        {
+            routeDistance = 0;
+
+            if (isConnected(AdjMatrix, currentNode, it->first))
+            {
+                routeDistance += it->second;
+                findCheapestRouteHelper(AdjMatrix, routeDistance, currentNode, end);
+            }
+        }
+    }
+
+    return routeDistance;
 }
 
 // Find maximum cheapest route between any pair of cities.
