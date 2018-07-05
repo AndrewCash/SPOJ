@@ -31,7 +31,7 @@ between all pairs of cities across the airline’s network.
 #include <vector>
 using namespace std;
 
-const bool DEBUG = false;
+const bool DEBUG = true;
 
 // Add edge to graph
 //  u = vertex represented by index of vector
@@ -39,6 +39,8 @@ const bool DEBUG = false;
 //  price = weight of edge
 void addFlight(vector<pair<int, int> > AdjMatrix[], int u, int v, int price)
 {
+    if (DEBUG) {cout << "Adding flight...\n";}
+
     AdjMatrix[u].push_back(make_pair(v, price));
     AdjMatrix[v].push_back(make_pair(u, price));
 
@@ -49,6 +51,8 @@ void addFlight(vector<pair<int, int> > AdjMatrix[], int u, int v, int price)
 // each city and the price to get there.
 void printGraph(vector<pair<int, int> > AdjMatrix[], int Cities)
 {
+    if (DEBUG) {cout << "Printing map...\n";}
+
     int v, w;
     for (int i = 1; i < Cities + 1; i++)
     {
@@ -82,10 +86,7 @@ bool isConnected(vector<pair<int, int> > AdjMatrix[], int u, int v)
 int findCheapestRouteHelper(vector<pair<int, int> > AdjMatrix[], int routePrice, bool shortestPathSet[],
                             int currentNode, int end)
 {
-    if (DEBUG)
-    {
-        cout << "In findCheapestRouteHelper\n";
-    }
+    //if (DEBUG) {cout << "In findCheapestRouteHelper\n";}
 
     while (currentNode != end)
     {
@@ -110,10 +111,7 @@ int findCheapestRouteHelper(vector<pair<int, int> > AdjMatrix[], int routePrice,
 // Find cheapest route between City 1 and City 2
 int findCheapestRoute(vector<pair<int, int> > AdjMatrix[], int citites, int start, int end)
 {
-    if (DEBUG)
-    {
-        cout << "In findCheapestRoute\n";
-    }
+    if (DEBUG) {cout << "In findCheapestRoute\n";}
 
     // v = it->first;  // Vertex of second city in coordinate pair
     // w = it->second; // Weight of second city in coordinate pair
@@ -150,10 +148,7 @@ int findCheapestRoute(vector<pair<int, int> > AdjMatrix[], int citites, int star
 // Return maximum cheapest route between any two cities.
 int findMaxCheapRoute(vector<pair<int, int> > AdjMatrix[], int Cities)
 {
-    if (DEBUG)
-    {
-        cout << "In findMaxCheapRoute\n";
-    }
+    if (DEBUG) {cout << "In findMaxCheapRoute\n";}
 
     int cheapestRoutePrice = 0;
     int routePrice = 0;
