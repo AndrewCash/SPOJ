@@ -80,6 +80,23 @@ bool isConnected(vector<pair<int, int> > AdjMatrix[], int u, int v)
 int findCheapestRouteHelper(vector<pair<int, int> > AdjMatrix[], int routePrice, bool shortestPathSet[],
                             int currentNode, int end)
 {
+    while (currentNode != end)
+    {
+        // Loop through nodes connected to first node.
+        for (auto it = AdjMatrix[currentNode].begin(); it!=AdjMatrix[currentNode].end(); it++)
+        {
+
+            // Citites are connected and city isn't already on shortest path.
+            if ((isConnected(AdjMatrix, currentNode, it->first)) && (shortestPathSet[it->first] == false))
+            {
+                routePrice += it->second;
+                shortestPathSet[currentNode] = true;
+
+                findCheapestRouteHelper(AdjMatrix, routePrice, shortestPathSet, currentNode, end);
+            }
+        }
+    }
+
     return routePrice;
 }
 
@@ -106,6 +123,8 @@ int findCheapestRoute(vector<pair<int, int> > AdjMatrix[], int citites, int star
             if (isConnected(AdjMatrix, currentNode, it->first))
             {
                 routePrice += it->second;
+                shortestPathSet[currentNode] = true;
+
                 findCheapestRouteHelper(AdjMatrix, routePrice, shortestPathSet, currentNode, end);
             }
         }
@@ -168,7 +187,6 @@ int main() {
     printGraph(AdjMatrix, Cities);
 
     findMaxCheapRoute(AdjMatrix, Cities);
-
 
     return 0;
 }
