@@ -72,21 +72,29 @@ bool isConnected(vector<pair<int, int> > AdjMatrix[], int u, int v)
         {
             return true;
         }
-
     }
 
     return false;
 }
 
+// Find cheapest route between City 1 and City 2
+int findRoute(vector<pair<int, int> > AdjMatrix[], int City1, int City2)
+{
+    // v = it->first;  // Vertex of second city in coordinate pair
+    // w = it->second; // Weight of second city in coordinate pair
+    //
+    // if (isConnected(AdjMatrix, i, v))
+}
 
 // Find maximum cheapest route between any pair of cities.
-int findCheapRoute(vector<pair<int, int> > AdjMatrix[], int Cities)
+// Loop through each pair of cities and find cheapest route.
+// Return maximum cheapest route between any two cities.
+int findMaxCheapRoute(vector<pair<int, int> > AdjMatrix[], int Cities)
 {
     int cheapestRouteDistance = 0;
     int cheapestRoutePrice = 0;
     int routeDistance = 0;
     int routePrice = 0;
-    int v, w;
 
     // Loop through first city in pair.
     for (int i = 1; i < Cities + 1; i++)
@@ -95,8 +103,6 @@ int findCheapRoute(vector<pair<int, int> > AdjMatrix[], int Cities)
         // Loop through second city and weight
         for (auto it = AdjMatrix[i].begin(); it!=AdjMatrix[i].end(); it++)
         {
-              v = it->first;
-              w = it->second;
 
 
               if (cheapestRouteDistance < routeDistance)
@@ -109,6 +115,8 @@ int findCheapRoute(vector<pair<int, int> > AdjMatrix[], int Cities)
 
     return cheapestRoutePrice;
 }
+
+
 
 int main() {
     int Cities, Flights;       // C = # of cities / verticies
