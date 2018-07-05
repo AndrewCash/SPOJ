@@ -31,6 +31,8 @@ between all pairs of cities across the airline’s network.
 #include <vector>
 using namespace std;
 
+const bool DEBUG = false;
+
 // Add edge to graph
 //  u = vertex represented by index of vector
 //  v = vertex connected to index vertex
@@ -80,6 +82,11 @@ bool isConnected(vector<pair<int, int> > AdjMatrix[], int u, int v)
 int findCheapestRouteHelper(vector<pair<int, int> > AdjMatrix[], int routePrice, bool shortestPathSet[],
                             int currentNode, int end)
 {
+    if (DEBUG)
+    {
+        cout << "In findCheapestRouteHelper\n";
+    }
+
     while (currentNode != end)
     {
         // Loop through nodes connected to first node.
@@ -103,6 +110,11 @@ int findCheapestRouteHelper(vector<pair<int, int> > AdjMatrix[], int routePrice,
 // Find cheapest route between City 1 and City 2
 int findCheapestRoute(vector<pair<int, int> > AdjMatrix[], int citites, int start, int end)
 {
+    if (DEBUG)
+    {
+        cout << "In findCheapestRoute\n";
+    }
+
     // v = it->first;  // Vertex of second city in coordinate pair
     // w = it->second; // Weight of second city in coordinate pair
 
@@ -138,6 +150,11 @@ int findCheapestRoute(vector<pair<int, int> > AdjMatrix[], int citites, int star
 // Return maximum cheapest route between any two cities.
 int findMaxCheapRoute(vector<pair<int, int> > AdjMatrix[], int Cities)
 {
+    if (DEBUG)
+    {
+        cout << "In findMaxCheapRoute\n";
+    }
+
     int cheapestRoutePrice = 0;
     int routePrice = 0;
 
