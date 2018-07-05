@@ -125,7 +125,7 @@ int findCheapestRoute(vector<pair<int, int> > AdjMatrix[], int citites, int star
                 routePrice += it->second;
                 shortestPathSet[currentNode] = true;
 
-                findCheapestRouteHelper(AdjMatrix, routePrice, shortestPathSet, currentNode, end);
+                findCheapestRouteHelper(AdjMatrix, routePrice, shortestPathSet, it->first, end);
             }
         }
     }
