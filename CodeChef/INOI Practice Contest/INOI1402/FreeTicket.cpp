@@ -1,8 +1,8 @@
 // Andrew Cash
 // https://www.codechef.com/INOIPRAC/problems/INOI1402
 
-// Goal:
 /*
+Goal:
 
 Some dude has won the contest and he is entitled to a free ticket
 between any two destinations served by the airline. All cities served
@@ -39,8 +39,12 @@ void addFlight(vector<pair<int, int> > AdjMatrix[], int u, int v, int price)
 {
     AdjMatrix[u].push_back(make_pair(v, price));
     AdjMatrix[v].push_back(make_pair(u, price));
+
+    // push_back - adds element to end of vector
 }
 
+// Print information about which citites are connected to
+// each city and the price to get there.
 void printGraph(vector<pair<int, int> > AdjMatrix[], int Cities)
 {
     int v, w;
@@ -48,56 +52,62 @@ void printGraph(vector<pair<int, int> > AdjMatrix[], int Cities)
     {
         cout << "City " << i << " has a connecting flight with \n";
 
-        for (auto it = AdjMatrix[i].begin(); it!=AdjMatrix[i].end(); it++)
+        for (auto it = AdjMatrix[i].begin(); it!=AdjMatrix[i].end(); it++) // begin and end are array iterator
         {
             v = it->first;
             w = it->second;
-            cout << "\tcity " << v << " with price = " << w << "\n";
+            cout << "\tCity " << v << " with price = " << w << "\n";
         }
         cout << "\n";
     }
 }
 
-void printOrderedPairs(vector<pair<int, int> > AdjMatrix[], int Cities)
+// Check if city u is connected to city v.
+// If so, return true.
+bool isConnected(vector<pair<int, int> > AdjMatrix[], int u, int v)
 {
+    for (auto it = AdjMatrix[u].begin(); it!=AdjMatrix[u].end(); it++)
+    {
+        if (v == it->first)
+        {
+            return true;
+        }
 
+    }
 
+    return false;
 }
-
-//What i want to do...
 
 
 // Find maximum cheapest route between any pair of cities.
 int findCheapRoute(vector<pair<int, int> > AdjMatrix[], int Cities)
 {
-  int cheapestRouteDistance = 0;
-  int cheapestRoutePrice = 0;
-  int routeDistance = 0;
-  int routePrice = 0;
+    int cheapestRouteDistance = 0;
+    int cheapestRoutePrice = 0;
+    int routeDistance = 0;
+    int routePrice = 0;
+    int v, w;
 
-  // Loop through first city in pair.
-  int v, w;
-  for (int i = 1; i < Cities + 1; i++)
-  {
+    // Loop through first city in pair.
+    for (int i = 1; i < Cities + 1; i++)
+    {
+
+        // Loop through second city and weight
+        for (auto it = AdjMatrix[i].begin(); it!=AdjMatrix[i].end(); it++)
+        {
+              v = it->first;
+              w = it->second;
 
 
-      // Loop through second city and weight
-      for (auto it = AdjMatrix[i].begin(); it!=AdjMatrix[i].end(); it++)
-      {
-          v = it->first;
-          w = it->second;
-          //cout << "\tcity " << v << " with price = " << w << "\n";
-
-          if (cheapestRouteDistance < routeDistance)
-          {
-            cheapestRouteDistance = routeDistance;
-            cheapestRoutePrice = routePrice;
+              if (cheapestRouteDistance < routeDistance)
+              {
+                  cheapestRouteDistance = routeDistance;
+                  cheapestRoutePrice = routePrice;
+              }
           }
-      }
-      cout << "\n";
-  }
+    }
 
-  return cheapestRoutePrice;
+    return cheapestRoutePrice;
 }
 
 int main() {
