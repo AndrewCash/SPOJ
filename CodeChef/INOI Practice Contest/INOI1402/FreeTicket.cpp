@@ -167,10 +167,10 @@ int main() {
     int Cities, Flights;       // C = # of cities / verticies
     cin >> Cities >> Flights;  // F = # of pairs of cities connected / edges
 
-    // Vector contains adjacency matrix for graph.
-    // Vertex 1 = index of vector
-    // Vertex 2 = first int
-    // Weight   = second int
+    // Array of vectors containing pairs of ints with adjacency matrix info for graph.
+    // Vertex / city 1 = index of vector
+    // Vertex / city 2 = first int of pair
+    // Weight = second int of pair
     // Adj Matrix array isn't zero indexed
     vector<pair<int, int> > AdjMatrix[Cities];
 
