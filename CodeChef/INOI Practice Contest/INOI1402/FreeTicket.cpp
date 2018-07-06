@@ -86,7 +86,7 @@ bool isConnected(vector<pair<int, int> > AdjMatrix[], int u, int v)
 int findCheapestRouteFromCurrentNodetoEnd(vector<pair<int, int> > AdjMatrix[], int routePrice, bool shortestPathSet[],
                             int currentNode, int end)
 {
-    //if (DEBUG) {cout << "\tLooking for sub route from " << currentNode << " to " << end << endl;}
+    if (DEBUG) {cout << "\tLooking for sub route from " << currentNode << " to " << end << endl;}
 
     while (currentNode != end)
     {
@@ -97,6 +97,7 @@ int findCheapestRouteFromCurrentNodetoEnd(vector<pair<int, int> > AdjMatrix[], i
             // Citites are connected and city isn't already on shortest path.
             if ((isConnected(AdjMatrix, currentNode, it->first)) && (shortestPathSet[it->first] == false))
             {
+                currentNode = it->first;
                 routePrice += it->second;
                 shortestPathSet[currentNode] = true;
 
