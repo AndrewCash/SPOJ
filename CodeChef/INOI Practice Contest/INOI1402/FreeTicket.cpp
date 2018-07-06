@@ -84,10 +84,14 @@ bool isConnected(vector<pair<int, int> > AdjMatrix[], int u, int v)
 }
 
 // Helper method for findCheapestRouteFromOneCitytoAnother()
-int findCheapestRouteFromCurrentNodetoEnd(vector<pair<int, int> > AdjMatrix[], int routePrice, bool shortestPathSet[],
+int findCheapestRouteFromCurrentNodetoEnd(vector<pair<int, int> > AdjMatrix[], int routePrice, vector <bool> shortestPathSet,
                             int currentNode, int end)
 {
-    if (DEBUG) {cout << "\tLooking for sub route from " << currentNode << " to " << end << endl;}
+    if (DEBUG) {cout << "\tLooking for route from " << currentNode << " to " << end;
+
+                cout << ". Price = " << routePrice << endl;
+               }
+
 
     while (currentNode != end)
     {
@@ -114,13 +118,14 @@ int findCheapestRouteFromCurrentNodetoEnd(vector<pair<int, int> > AdjMatrix[], i
 // Recursive
 int findCheapestRouteFromOneCitytoAnother(vector<pair<int, int> > AdjMatrix[], int citites, int start, int end)
 {
-    if (DEBUG) {cout << "Looking for route from " << start << " to " << end << endl;}
+    if (DEBUG) {cout << "Finding cheapest route from " << start << " to " << end << endl;}
 
     // v = it->first;  // Vertex of second city in coordinate pair
     // w = it->second; // Weight of second city in coordinate pair
 
     int routePrice = 0;
-    bool shortestPathSet[citites]; // Truth value wheter or not a city is in current path
+
+    vector <bool> shortestPathSet = { false }; // Truth value wheter or not a city is in current path
                                    // Keeps us from retracing steps
     int currentNode = start;
 
@@ -165,6 +170,7 @@ int findMaxCheapestRoute(vector<pair<int, int> > AdjMatrix[], int Cities)
         {
             // Look for cheapest route between cities i and AdjMatrix[i]->first
             cheapestRoutePrice = 0;
+
             cheapestRoutePrice = findCheapestRouteFromOneCitytoAnother(AdjMatrix, Cities, i, it->first);
 
             if (maxCheapestRoutePrice < cheapestRoutePrice)
