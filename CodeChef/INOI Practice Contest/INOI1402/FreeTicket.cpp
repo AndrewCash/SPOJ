@@ -86,7 +86,7 @@ bool isConnected(vector<pair<int, int> > AdjMatrix[], int u, int v)
 int findCheapestRouteHelper(vector<pair<int, int> > AdjMatrix[], int routePrice, bool shortestPathSet[],
                             int currentNode, int end)
 {
-    if (DEBUG) {cout << "\tLooking for route from " << currentNode << " to " << end << endl;}
+    //if (DEBUG) {cout << "\tLooking for sub route from " << currentNode << " to " << end << endl;}
 
     while (currentNode != end)
     {
@@ -146,12 +146,12 @@ int findCheapestRoute(vector<pair<int, int> > AdjMatrix[], int citites, int star
 // Find maximum cheapest route between any pair of cities.
 // Loop through each pair of cities and find cheapest route.
 // Return maximum cheapest route between any two cities.
-int findMaxCheapRoute(vector<pair<int, int> > AdjMatrix[], int Cities)
+int findMaxCheapestRoute(vector<pair<int, int> > AdjMatrix[], int Cities)
 {
     if (DEBUG) {cout << "Looking for the MAXIMUM cheapest route\n";}
 
+    int maxCheapestRoutePrice = 0;
     int cheapestRoutePrice = 0;
-    int routePrice = 0;
 
     // Loop through first city in pair.
     for (int i = 1; i < Cities + 1; i++)
@@ -160,17 +160,18 @@ int findMaxCheapRoute(vector<pair<int, int> > AdjMatrix[], int Cities)
         // Loop through second city and weight
         for (auto it = AdjMatrix[i].begin(); it!=AdjMatrix[i].end(); it++)
         {
-            routePrice = 0;
-            routePrice = findCheapestRoute(AdjMatrix, Cities, i, it->first);
+            // Look for cheapest route between cities i and AdjMatrix[i]->first
+            cheapestRoutePrice = 0;
+            cheapestRoutePrice = findCheapestRoute(AdjMatrix, Cities, i, it->first);
 
-            if (cheapestRoutePrice > routePrice)
+            if (maxCheapestRoutePrice < cheapestRoutePrice)
             {
-                cheapestRoutePrice = routePrice;
+                maxCheapestRoutePrice = cheapestRoutePrice;
             }
         }
     }
 
-    return cheapestRoutePrice;
+    return maxCheapestRoutePrice;
 }
 
 
@@ -198,7 +199,7 @@ int main() {
 
     printGraph(AdjMatrix, Cities);
 
-    findMaxCheapRoute(AdjMatrix, Cities);
+    findMaxCheapestRoute(AdjMatrix, Cities);
 
     return 0;
 }
