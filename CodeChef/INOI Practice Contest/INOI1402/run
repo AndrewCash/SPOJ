@@ -5,3 +5,5 @@ echo "Compiling..."
 
 echo "Executing..."
 ./a.out < "input.txt"
+
+date
