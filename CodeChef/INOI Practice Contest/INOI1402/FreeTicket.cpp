@@ -109,7 +109,7 @@ int findCheapestRouteHelper(vector<pair<int, int> > AdjMatrix[], int routePrice,
 }
 
 // Find cheapest route between City 1 and City 2
-int findCheapestRoute(vector<pair<int, int> > AdjMatrix[], int citites, int start, int end)
+int findCheapestRouteFromOneCitytoAnother(vector<pair<int, int> > AdjMatrix[], int citites, int start, int end)
 {
     if (DEBUG) {cout << "Looking for route from " << start << " to " << end << endl;}
 
@@ -157,12 +157,12 @@ int findMaxCheapestRoute(vector<pair<int, int> > AdjMatrix[], int Cities)
     for (int i = 1; i < Cities + 1; i++)
     {
 
-        // Loop through second city and weight
+        // Loop through second city
         for (auto it = AdjMatrix[i].begin(); it!=AdjMatrix[i].end(); it++)
         {
             // Look for cheapest route between cities i and AdjMatrix[i]->first
             cheapestRoutePrice = 0;
-            cheapestRoutePrice = findCheapestRoute(AdjMatrix, Cities, i, it->first);
+            cheapestRoutePrice = findCheapestRouteFromOneCitytoAnother(AdjMatrix, Cities, i, it->first);
 
             if (maxCheapestRoutePrice < cheapestRoutePrice)
             {
