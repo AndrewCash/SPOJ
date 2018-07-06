@@ -86,11 +86,7 @@ bool isConnected(vector<pair<int, int> > AdjMatrix[], int u, int v)
 int findCheapestRouteHelper(vector<pair<int, int> > AdjMatrix[], int routePrice, bool shortestPathSet[],
                             int currentNode, int end)
 {
-<<<<<<< HEAD
     //if (DEBUG) {cout << "\tLooking for sub route from " << currentNode << " to " << end << endl;}
-=======
-    //if (DEBUG) {cout << "In findCheapestRouteHelper\n";}
->>>>>>> 47130a28d933251abf14cf7b84d68f4358642a23
 
     while (currentNode != end)
     {
@@ -115,11 +111,7 @@ int findCheapestRouteHelper(vector<pair<int, int> > AdjMatrix[], int routePrice,
 // Find cheapest route between City 1 and City 2
 int findCheapestRoute(vector<pair<int, int> > AdjMatrix[], int citites, int start, int end)
 {
-<<<<<<< HEAD
     if (DEBUG) {cout << "Looking for route from " << start << " to " << end << endl;}
-=======
-    if (DEBUG) {cout << "In findCheapestRoute\n";}
->>>>>>> 47130a28d933251abf14cf7b84d68f4358642a23
 
     // v = it->first;  // Vertex of second city in coordinate pair
     // w = it->second; // Weight of second city in coordinate pair
@@ -156,11 +148,7 @@ int findCheapestRoute(vector<pair<int, int> > AdjMatrix[], int citites, int star
 // Return maximum cheapest route between any two cities.
 int findMaxCheapestRoute(vector<pair<int, int> > AdjMatrix[], int Cities)
 {
-<<<<<<< HEAD
     if (DEBUG) {cout << "Looking for the MAXIMUM cheapest route\n";}
-=======
-    if (DEBUG) {cout << "In findMaxCheapRoute\n";}
->>>>>>> 47130a28d933251abf14cf7b84d68f4358642a23
 
     int maxCheapestRoutePrice = 0;
     int cheapestRoutePrice = 0;
