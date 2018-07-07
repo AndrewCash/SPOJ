@@ -84,7 +84,7 @@ bool isConnected(vector<pair<int, int> > AdjMatrix[], int u, int v)
 }
 
 // Helper method for findCheapestRouteFromOneCitytoAnother()
-int findCheapestRouteFromCurrentNodetoEnd(vector<pair<int, int> > AdjMatrix[],
+int findCheapestRouteFromCurrentCitytoEndCity(vector<pair<int, int> > AdjMatrix[],
                                           int routePrice, vector <bool> shortestPathSet,
                                           int currentCity,
                                           int endCity)
@@ -125,7 +125,7 @@ int findCheapestRouteFromOneCitytoAnother(vector<pair<int, int> > AdjMatrix[], i
                 routePrice += it->second;
                 shortestPathSet[it->first] = true;
 
-                findCheapestRouteFromCurrentNodetoEnd(AdjMatrix, routePrice, shortestPathSet, it->first, end);
+                findCheapestRouteFromCurrentCitytoEndCity(AdjMatrix, routePrice, shortestPathSet, it->first, end);
             }
         }
     }
