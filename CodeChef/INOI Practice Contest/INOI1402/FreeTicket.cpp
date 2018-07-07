@@ -69,12 +69,26 @@ int findCheapestRouteFromCurrentCitytoEndCityHelper(vector<pair<int, int> > AdjM
                }
 
     if (currentCity == endCity)
-    {
         return routePrice;
+
+
+    for (auto it = AdjMatrix[currentCity].begin(); it!=AdjMatrix[currentCity].end(); it++)
+    {
+        if (shortestPathSet[it->first] == true)
+        {
+            shortestPathSet[it->first] = true;
+            routePrice += it->second;
+
+            routePrice += findCheapestRouteFromCurrentCitytoEndCityHelper(AdjMatrix,
+                    routePrice, shortestPathSet, it->first, endCity);
+
+        }
+        else
+            continue;
     }
 
 
-
+    return routePrice;
 }
 
 // Find cheapest route between City 1 and City 2
@@ -128,6 +142,10 @@ void findMaxCheapestRoute(vector<pair<int, int> > AdjMatrix[], int Cities)
         for (int j = 1; j < Cities + 1; j++)
         {
             if (i == j)
+                continue;
+
+            // Check if i is connected to j.
+            if (isConnected(AdjMatrix, i, j))
                 continue;
 
             // Look for cheapest route between cities i and j
