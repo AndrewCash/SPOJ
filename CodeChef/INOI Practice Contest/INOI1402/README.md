@@ -20,6 +20,12 @@ We would like to maximize the value of the prize, so we would like
 to choose a pair of cities on the network for which the cost of
 the cheapest route is as high as possible.
 
+For instance, suppose the network consists of four cities {1, 2, 3, 4}, connected as shown on the right.
+
+In this case, we should choose to travel between 1 and 4, where the cheapest route has cost 19. You can check that for all other pairs of cities, the cheapest route has a smaller cost. For instance, notice that though the direct flight from 1 to 3 costs 24, there is a cheaper route of cost 12 from 1 to 2 to 3.
+
+![](https://www.codechef.com/download/free-ticket.png)
+
 ## Input:
 
 * Line 1 : Two space-separated integers, C and F . C is the number of cities on the network, numbered 1, 2, . . . , C. F is the number of pairs of cities connected by a direct flight.
