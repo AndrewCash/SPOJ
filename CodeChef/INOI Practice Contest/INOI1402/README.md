@@ -2,7 +2,7 @@
 
 [Link to challenge](https://www.codechef.com/INOIPRAC/problems/INOI1402)
 
-Goal:
+## Goal:
 
 Some dude has won the contest and he is entitled to a free ticket
 between any two destinations served by the airline. All cities served
