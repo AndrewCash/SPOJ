@@ -84,38 +84,18 @@ bool isConnected(vector<pair<int, int> > AdjMatrix[], int u, int v)
 }
 
 // Helper method for findCheapestRouteFromOneCitytoAnother()
-int findCheapestRouteFromCurrentNodetoEnd(vector<pair<int, int> > AdjMatrix[], int routePrice, vector <bool> shortestPathSet,
-                            int currentNode, int end)
+int findCheapestRouteFromCurrentNodetoEnd(vector<pair<int, int> > AdjMatrix[],
+                                          int routePrice, vector <bool> shortestPathSet,
+                                          int currentCity,
+                                          int endCity)
 {
-    if (DEBUG) {cout << "\tLooking for route from " << currentNode << " to " << end;
+    if (DEBUG) {cout << "\tLooking for route from " << currentCity << " to " << endCity;
 
                 cout << ". Price = " << routePrice << endl;
                }
 
 
-    if (currentNode == end)
-    {
-        return routePrice;
-    }
-    else
-    {
-        // Loop through nodes connected to first node.
-        for (auto it = AdjMatrix[currentNode].begin(); it!=AdjMatrix[currentNode].end(); it++)
-        {
 
-            // Citites are connected and city isn't already on shortest path.
-            if ((isConnected(AdjMatrix, currentNode, it->first)) && (shortestPathSet[it->first] != true))
-            {
-                currentNode = it->first;
-                routePrice += it->second;
-                shortestPathSet[currentNode] = true;
-
-                findCheapestRouteFromCurrentNodetoEnd(AdjMatrix, routePrice, shortestPathSet, currentNode, end);
-            }
-        }
-    }
-
-    return routePrice;
 }
 
 // Find cheapest route between City 1 and City 2
@@ -167,13 +147,13 @@ int findMaxCheapestRoute(vector<pair<int, int> > AdjMatrix[], int Cities)
     for (int i = 1; i < Cities + 1; i++)
     {
 
-        // Loop through second city
+        // Loop through second city in pair
         for (int j = 1; j < Cities + 1; j++)
         {
             if (i == j)
                 continue;
 
-            // Look for cheapest route between cities i and AdjMatrix[i]->first
+            // Look for cheapest route between cities i and j
             cheapestRoutePrice = 0;
 
             cheapestRoutePrice = findCheapestRouteFromOneCitytoAnother(AdjMatrix, Cities, i, j);
