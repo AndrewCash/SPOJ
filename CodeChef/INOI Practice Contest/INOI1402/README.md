@@ -26,7 +26,7 @@ the cheapest route is as high as possible.
 * Lines 2 to F + 1 : Each line describes one direct flight between a pair of cities and consists of three integers, x, y and p, where x and y are the two cities connected by this flight and p is the price of this
 
 
-For all direct flights, x ƒ= y and no pair of cities is connected by more than one direct flight.
+For all direct flights, x ƒ= y and **no pair of cities is connected by more than one direct flight**.
 If there is a direct flight from x to y with price p, there is also a flight from y to x with price p and exactly one of these two will be listed.
 
 ## Output:
