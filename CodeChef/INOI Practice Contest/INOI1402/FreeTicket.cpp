@@ -103,7 +103,10 @@ int findCheapestRouteFromCurrentCitytoEndCityHelper(vector<pair<int, int> > AdjM
 
 // Find cheapest route between City 1 and City 2
 // Recursive
-int findCheapestRouteFromOneCitytoAnother(vector<pair<int, int> > AdjMatrix[], int citites, int start, int end)
+int findCheapestRouteFromOneCitytoAnother(vector<pair<int, int> > AdjMatrix[],
+                                          int citites,
+                                          int start,
+                                          int end)
 {
     if (DEBUG) {cout << "Finding cheapest route from " << start << " to " << end << endl;}
 
@@ -123,8 +126,8 @@ int findCheapestRouteFromOneCitytoAnother(vector<pair<int, int> > AdjMatrix[], i
 
         if (isConnected(AdjMatrix, start, it->first))
         {
-            routePrice += it->second;
             shortestPathSet[it->first] = true;
+            routePrice += it->second;
 
             findCheapestRouteFromCurrentCitytoEndCityHelper(AdjMatrix, routePrice, shortestPathSet, it->first, end);
         }
