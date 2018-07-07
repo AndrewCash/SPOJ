@@ -1,5 +1,7 @@
 # Free ticket | Problem Code: INOI1402
 
+[Link to challenge](https://www.codechef.com/INOIPRAC/problems/INOI1402)
+
 Goal:
 
 Some dude has won the contest and he is entitled to a free ticket
@@ -20,8 +22,8 @@ the cheapest route is as high as possible.
 
 ## Input:
 
-+Line 1 : Two space-separated integers, C and F . C is the number of cities on the network, numbered 1, 2, . . . , C. F is the number of pairs of cities connected by a direct flight.
-+Lines 2 to F + 1 : Each line describes one direct flight between a pair of cities and consists of three integers, x, y and p, where x and y are the two cities connected by this flight and p is the price of this
+* Line 1 : Two space-separated integers, C and F . C is the number of cities on the network, numbered 1, 2, . . . , C. F is the number of pairs of cities connected by a direct flight.
+* Lines 2 to F + 1 : Each line describes one direct flight between a pair of cities and consists of three integers, x, y and p, where x and y are the two cities connected by this flight and p is the price of this
 
 
 For all direct flights, x ƒ= y and no pair of cities is connected by more than one direct flight.
