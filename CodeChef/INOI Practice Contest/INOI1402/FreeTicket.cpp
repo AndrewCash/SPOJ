@@ -100,8 +100,8 @@ int findCheapestRouteFromOneCitytoAnother(vector<pair<int, int> > AdjMatrix[],
 {
     if (DEBUG) {cout << "Finding cheapest route from " << start << " to " << end << endl;}
 
-    // v = it->first;  // Vertex of second city in coordinate pair
-    // w = it->second; // Weight of second city in coordinate pair
+    // connecting flight = it->first;  // Vertex of second city in coordinate pair
+    // price = it->second; // Weight of second city in coordinate pair
 
     int routePrice = 0;
 
