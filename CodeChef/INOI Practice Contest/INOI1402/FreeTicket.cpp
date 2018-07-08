@@ -144,7 +144,7 @@ void findMaxCheapestRoute(vector<pair<int, int> > AdjMatrix[], int Cities)
             if (i == j)
                 continue;
 
-            // Check if i is connected to j.
+            // Don't check route if i is connected to j
             if (isConnected(AdjMatrix, i, j))
                 continue;
 
@@ -173,7 +173,7 @@ int main() {
     // Vertex / city 2 = first int of pair
     // Weight = second int of pair
     // Adj Matrix array isn't zero indexed
-    vector<pair<int, int> > AdjMatrix[Cities];
+    vector<pair<int, int> > AdjMatrix[Cities + 1];
 
     // Add flights to map
     int x, y, p;
