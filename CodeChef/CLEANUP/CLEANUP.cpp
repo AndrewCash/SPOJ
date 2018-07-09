@@ -7,6 +7,16 @@ using namespace std;
 void cleanup()
 {
     int m, n;
+    cin >> n >> m;
+
+    bool completed[n];
+
+    for (int i=0; i < m; i++)
+    {
+        int j;
+        cin >> j;
+        completed[j] = true;
+    }
 }
 
 int main()
