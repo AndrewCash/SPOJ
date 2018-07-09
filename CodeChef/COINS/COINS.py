@@ -2,14 +2,10 @@
 # COINS python implementation
 
 def exchange(num):
-    a = num / 2
-    b = num / 3
-    c = num / 4
-    
-    sumofparts = a + b + c
+    sumOfParts = num/2 + num/3 + num/4
 
     if (sumofparts > num):
-        print (a + b + c)
+        print sumOfParts
     else:
         print num
 
