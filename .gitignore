@@ -30,3 +30,9 @@
 *.exe
 *.out
 *.app
+
+# Vim extraxs
+*.swp
+*.swo
+*.swn
+*.swm
