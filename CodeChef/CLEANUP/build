@@ -1,0 +1,9 @@
+#!/bin/bash
+
+echo "Compiling..."
+
+if g++ -Wall CLEANUP.cpp -o a.out; then
+echo "Success!";
+else
+echo "Failure...";
+fi
