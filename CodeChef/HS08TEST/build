@@ -1,0 +1,4 @@
+#!/bin/bash
+
+echo "Compiling.."
+g++ -Wall main.cpp -o a.out  
