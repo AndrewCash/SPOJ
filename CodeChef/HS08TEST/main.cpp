@@ -11,10 +11,13 @@ int main() {
 
     cin >> withdrawal;
     cin >> balance;
+    
+    if (withdrawl % 5 != 0)
+        return 0;
 
-    balance = balance - withdrawal - 0.5;
-   
-    cout << balance << endl;
-
+    if ((balance + 0.5) > withdrawl ) {
+        balance = balance - withdrawal - 0.5;
+        cout << balance << endl;
+    }
     return 0;
 }
