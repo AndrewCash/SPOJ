@@ -1,12 +1,11 @@
-#!/bin/env python
-import sys
-
+#Andrew Cash
+#https://www.codechef.com/problems/HS08TEST
 
 withdrawal = input()
 balance = input()
 
 if withdrawal % 5 != 0:
-    sys.exit()
+    exit (0)
 
 if ((balance + 0.5) > withdrawal):
     balance = balance - withdrawal - 0.5
