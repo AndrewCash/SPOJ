@@ -11,56 +11,49 @@ using namespace std;
 
 void findPrimes(int low, int high)
 {
-    vector<int> primes;
-    
+    vector<bool> primes;
+    bool isPrime;
+
     // Loop from low to high
     for (int i=low; i<high; i++)
     {
-        bool prime=true;
 
         for (int j=2; j<i; j++)
         {
-            if (j%i == 0)
-            {
-                prime = false;
-               // break;
+            if (j%i == 0) {    // There exists a number that divides i
+                isPrime = false; // Thus set prime to false at i
+            } else {
+                isPrime = true;
             }
         }
 
-        if (prime)
-        {
-            primes.push_back(i);
-        }
+        primes.push_back(isPrime);
     }
 
 
     cout << endl;
     for (int i = low; i < high; i++)
     {
-        if ( find(primes.begin(), primes.end(), i) != primes.end())
-            cout << i;
+        for (int j=0; j < primes.size(); j++)
+        {
+            if (primes[i] == true)
+                cout << i << endl;
+        }
     }
 }
 
 
 int main(){
-  
+
   int cases;
   cin >> cases;
-  /*
-  if (0 < numTestCase && numTestCase <= 10){
-    cin >> numTestCase;
-  }
-  else
-    return 0;
-*/
 
-  int m[cases-1];
-  int n[cases-1];
-   
+  int m[cases];
+  int n[cases];
+
   for (int i=0; i<cases; i++){
     cin >> m[i] >> n[i];
-   //cout << "M: " << m[i] <<  "\nN: " << n[i] << endl;
+    //cout << "M: " << m[i] <<  "\nN: " << n[i] << endl;
   }
 
 
