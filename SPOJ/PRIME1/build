@@ -1,0 +1,5 @@
+!#/bin/bash
+
+set -e -x
+echo "Compiling"
+g++ -Wall prime1.cpp -o a.out
